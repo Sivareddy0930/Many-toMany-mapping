@@ -40,8 +40,6 @@ public class EmployeeProjectService {
         return "Project created successfully";
     }
 
-
-
     @Transactional
     public String saveEmployeeWithProjects(Employee employee) {
 
@@ -68,7 +66,6 @@ public class EmployeeProjectService {
         query.setParameter(2, savedEmployee.getEid());
 
         query.executeUpdate();
-
 
         return "Employee added to project successfully";
     }
