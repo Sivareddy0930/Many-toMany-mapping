@@ -1,5 +1,7 @@
 package com.dev.manytomany.controller;
 
+import com.dev.manytomany.dto.AddEmployeeToProjectDto;
+import com.dev.manytomany.dto.AddProjectToEmployeeDto;
 import com.dev.manytomany.entity.Employee;
 import com.dev.manytomany.entity.Project;
 import com.dev.manytomany.service.EmployeeProjectService;
@@ -23,9 +25,20 @@ public class EmployeeProjectController {
         return employeeProjectService.saveEmployeeWithProjects(employee);
     }
 
-    @PostMapping("/addEmployeeToProject/{id}")
-    public String addEmployeeToProject(@PathVariable("id") Long projectId, @RequestBody Employee employee) {
-        return employeeProjectService.addEmployeeToProjectBasedOnId(projectId, employee);
-    }
-}
+//    @PostMapping("/addEmployeeToProject/{id}")
+//    public String addEmployeeToProject(@PathVariable("id") Long projectId, @RequestBody Employee employee) {
+//        return employeeProjectService.addEmployeeToProjectBasedOnId(projectId, employee);
+//    }
 
+    @PostMapping("/addEmployeeToProject")
+    public String addEmployeeToProject(@RequestBody AddEmployeeToProjectDto addEmployeeToProjectDto) {
+        return employeeProjectService.addEmployeeToProjectBasedOnId(addEmployeeToProjectDto);
+    }
+
+    @PostMapping("/addProjectToEmployee")
+    public String addProjectToEmployee(@RequestBody AddProjectToEmployeeDto addProjectToEmployeeDto) {
+        return employeeProjectService.addProjectToEmployeeBasedOnId(addProjectToEmployeeDto);
+    }
+
+
+}

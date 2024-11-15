@@ -1,17 +1,15 @@
 package com.dev.manytomany.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Table(name = "employees")
-@Setter
-@Getter
+
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Employee {
@@ -33,14 +31,11 @@ public class Employee {
     )
     private Set<Project> projects= new HashSet<>();
 
-    public void addProject(Project project) {
-        projects.add(project);
-        project.getEmployees().add(this);
+    public Employee(String name, String email, String technicalSkills) {
+        this.name = name;
+        this.email = email;
+        this.technicalSkills = technicalSkills;
     }
 
-    public void removeProject(Project project) {
-        projects.remove(project);
-        project.getEmployees().remove(this);
-    }
 }
 
