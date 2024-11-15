@@ -21,4 +21,10 @@ public class EmployeeProjectControllerDeleteApis {
         return new ResponseEntity(response, HttpStatus.OK);
     }
 
+    @DeleteMapping("/deleteProject/{id}")
+    public ResponseEntity<String> deleteProject(@PathVariable Long id){
+        String response = service.deleteProjectById(id);
+        return new ResponseEntity(response, HttpStatus.OK);
+    }
+
 }
