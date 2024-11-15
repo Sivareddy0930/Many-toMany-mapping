@@ -25,11 +25,6 @@ public class EmployeeProjectController {
         return employeeProjectService.saveEmployeeWithProjects(employee);
     }
 
-//    @PostMapping("/addEmployeeToProject/{id}")
-//    public String addEmployeeToProject(@PathVariable("id") Long projectId, @RequestBody Employee employee) {
-//        return employeeProjectService.addEmployeeToProjectBasedOnId(projectId, employee);
-//    }
-
     @PostMapping("/addEmployeeToProject")
     public String addEmployeeToProject(@RequestBody AddEmployeeToProjectDto addEmployeeToProjectDto) {
         return employeeProjectService.addEmployeeToProjectBasedOnId(addEmployeeToProjectDto);
